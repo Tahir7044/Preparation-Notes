@@ -30,10 +30,10 @@ const useVirtualScroll = (length: number) => {
 const SpacerDivList = ({ data }: { data: Item[] }) => {
   const { startIndex, endIndex, throttledScroll } = useVirtualScroll(data.length);
   return (
-    <div style={{ height: `${CONTAINER_HEIGHT}px` }} className="container" onScroll={throttledScroll}>
+    <div style={{ height: `${CONTAINER_HEIGHT}px` }} className="vl-container" onScroll={throttledScroll}>
       <div style={{ height: `${startIndex  * ROW_HEIGHT}px` }} />
       {data.slice(startIndex, endIndex + 1).map(item => (
-        <div style={{ height: `${ROW_HEIGHT}px` }} className="item" key={item.id}>
+        <div style={{ height: `${ROW_HEIGHT}px` }} className="vl-item" key={item.id}>
           {item.name}
         </div>
       ))}
@@ -45,12 +45,12 @@ const SpacerDivList = ({ data }: { data: Item[] }) => {
 const PaddingTop = ({ data }: { data: Item[] }) => {
   const { startIndex, endIndex, throttledScroll } = useVirtualScroll(data.length);
   return (
-    <div style={{ height: `${CONTAINER_HEIGHT}px` }} className="container" onScroll={throttledScroll}>
+    <div style={{ height: `${CONTAINER_HEIGHT}px` }} className="vl-container" onScroll={throttledScroll}>
       <div style={{ 
         minHeight: `${data.length  * ROW_HEIGHT}px`,
         paddingTop: `${startIndex*ROW_HEIGHT}px`}} >
       {data.slice(startIndex, endIndex + 1).map(item => (
-        <div style={{ height: `${ROW_HEIGHT}px` }} className="item" key={item.id}>
+        <div style={{ height: `${ROW_HEIGHT}px` }} className="vl-item" key={item.id}>
           {item.name}
         </div>
       ))}
@@ -62,10 +62,10 @@ const PaddingTop = ({ data }: { data: Item[] }) => {
 const AbsolutePositionList = ({ data }: { data: Item[] }) => {
   const { startIndex, endIndex, throttledScroll } = useVirtualScroll(data.length);
   return (
-    <div style={{ height: `${CONTAINER_HEIGHT}px` }} className="container" onScroll={throttledScroll}>
+    <div style={{ height: `${CONTAINER_HEIGHT}px` }} className="vl-container" onScroll={throttledScroll}>
       <div style={{ height: `${data.length * ROW_HEIGHT}px`, position: 'relative' }}>
         {data.slice(startIndex, endIndex + 1).map(item => (
-          <div className="item" style={{ position: 'absolute', height: `${ROW_HEIGHT}px`, top: `${item.id * ROW_HEIGHT}px` }} key={item.id}>
+          <div className="vl-item" style={{ position: 'absolute', height: `${ROW_HEIGHT}px`, top: `${item.id * ROW_HEIGHT}px` }} key={item.id}>
             {item.name}
           </div>
         ))}
@@ -88,6 +88,3 @@ export const VirtualList = ({ data }: { data: Item[] }) => {
     </div>
   )
 }
-
-
-
