@@ -1,8 +1,7 @@
 import { createBrowserRouter, Link } from 'react-router-dom'
-import { VirtualList, TabList } from './components'
+import { VirtualList, TabList, Autocomplete, TrafficLight } from './components'
 
 const data = Array.from({ length: 10000 }, (_, i) => ({ id: i, name: `Item ${i}` }))
-
 const tabs = Array.from({length:5}, (_,i)=> ({id:i, name: `Tab ${i}`}));
 
 function Layout() {
@@ -15,6 +14,12 @@ function Layout() {
         </div>
         <div>
           <Link to="/tab">Tab</Link>
+        </div>
+        <div>
+          <Link to="/auto-complete">Auto Complete</Link>
+        </div>
+        <div>
+          <Link to="/traffic-light">Traffic Light</Link>
         </div>
       </nav>
     </>
@@ -30,8 +35,16 @@ export const router = createBrowserRouter([
     path: '/virtual-list',
     element: <VirtualList data={data} />,
   },
-    {
+  {
     path: '/tab',
     element: <TabList tabs={tabs}/>,
+  },
+  {
+    path: '/auto-complete',
+    element: <Autocomplete />,
+  }, 
+  {
+    path: '/traffic-light',
+    element: <TrafficLight />,
   },
 ])
