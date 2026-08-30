@@ -1,0 +1,22 @@
+.light{
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+    background-color: antiquewhite;
+}
+
+.traffic-light-container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.light-conatiner{
+    display:flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    gap: 12px;
+    background-color: rgb(19, 18, 18);
+}
