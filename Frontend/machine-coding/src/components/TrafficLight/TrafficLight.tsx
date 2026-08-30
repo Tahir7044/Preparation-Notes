@@ -1,8 +1,6 @@
 import {useState, useEffect} from 'react';
 import './TrafficLight.css';
 
-
-
 const traffic_light_config = [
     {
         color: "green",
@@ -57,8 +55,6 @@ export const TrafficLight = ()=>{
         return () => clearTimeout(timer);
 
     },[])
-
-    console.log(selectedColor)
 
     return (
         <div className="traffic-light-container">
