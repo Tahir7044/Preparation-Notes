@@ -1,5 +1,6 @@
 import { createBrowserRouter, Link } from 'react-router-dom'
-import { VirtualList, TabList, Autocomplete, TrafficLight } from './components'
+import { VirtualList, TabList, Autocomplete, TrafficLight, Accordian} from './components'
+import accordianContent from './data/accordion.json';
 
 const data = Array.from({ length: 10000 }, (_, i) => ({ id: i, name: `Item ${i}` }))
 const tabs = Array.from({length:5}, (_,i)=> ({id:i, name: `Tab ${i}`}));
@@ -20,6 +21,9 @@ function Layout() {
         </div>
         <div>
           <Link to="/traffic-light">Traffic Light</Link>
+        </div>
+        <div>
+          <Link to="/accordian">Accordian</Link>
         </div>
       </nav>
     </>
@@ -46,5 +50,9 @@ export const router = createBrowserRouter([
   {
     path: '/traffic-light',
     element: <TrafficLight />,
+  },
+  {
+    path: '/accordian',
+    element: <Accordian AccordianType={accordianContent}/>,
   },
 ])
