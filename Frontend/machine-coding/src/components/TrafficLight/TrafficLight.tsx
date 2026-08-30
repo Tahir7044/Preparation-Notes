@@ -26,28 +26,39 @@ const displayOrder = [
 
 
 const Light  = ({color}:{color:string})=>{
-
-    return (
-        <div className="light" style={{backgroundColor: color}}>
-        </div>
-    )
-
+    return <div className="light" style={{backgroundColor: color}} />
 }
 
 
 export const TrafficLight = ()=>{
 
     const [selectedColor, setSelectedColor] = useState<{color:string, duration:number} | null>(null);
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    // const [selectedIndex, setSelectedIndex] = useState(0);
+
+    // useEffect(()=>{
+    //     const timer = setTimeout(()=>{
+    //         const getColor = traffic_light_config.filter(light=> light.color === displayOrder[selectedIndex].color)
+    //         setSelectedColor(getColor[0]);
+    //         setSelectedIndex((selectedIndex+1)%traffic_light_config.length)
+    //     },selectedColor?.duration)
+    //     return ()=> clearTimeout(timer);
+    // },[selectedColor])
 
     useEffect(()=>{
-        const timer = setInterval(()=>{
-            const getColor = traffic_light_config.filter(light=> light.color === displayOrder[selectedIndex].color)
+        let timer: number;
+        let index = 0;
+        const tick = ()=>{
+            const getColor = traffic_light_config.filter(light => light.color === displayOrder[index].color)
             setSelectedColor(getColor[0]);
-            setSelectedIndex((selectedIndex+1)%traffic_light_config.length)
-        },selectedColor?.duration)
-        return ()=> clearInterval(timer);
-    },[selectedColor])
+            index = (index+1)%traffic_light_config.length;
+            timer = setTimeout(tick, getColor[0]?.duration)
+        }
+        timer = setTimeout(tick, 0);
+        return () => clearTimeout(timer);
+
+    },[])
+
+    console.log(selectedColor)
 
     return (
         <div className="traffic-light-container">
