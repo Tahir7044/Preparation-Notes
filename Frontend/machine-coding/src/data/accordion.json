@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "What is React?",
+    "content": "React is a JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called components."
+  },
+  {
+    "id": 2,
+    "title": "What is the virtual DOM?",
+    "content": "The virtual DOM is a lightweight in-memory representation of the real DOM. React uses it to compute the minimal set of changes needed before updating the actual browser DOM, making updates efficient."
+  },
+  {
+    "id": 3,
+    "title": "What are React hooks?",
+    "content": "Hooks are functions that let you use state and other React features inside functional components. Common hooks include useState, useEffect, useRef, useMemo, and useCallback."
+  },
+  {
+    "id": 4,
+    "title": "What is the difference between props and state?",
+    "content": "Props are read-only inputs passed from a parent component to a child. State is mutable data managed within a component itself. When state or props change, the component re-renders."
+  },
+  {
+    "id": 5,
+    "title": "What is useEffect used for?",
+    "content": "useEffect lets you perform side effects in functional components such as data fetching, subscriptions, or manually changing the DOM. It runs after every render by default, but you can control when it runs using a dependency array."
+  }
+]
